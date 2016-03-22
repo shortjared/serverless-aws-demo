@@ -1,0 +1,38 @@
+{
+  "name": "twilio-endpoint",
+  "customName": false,
+  "customRole": false,
+  "handler": "twilio-endpoint/handler.handler",
+  "timeout": 6,
+  "memorySize": 1024,
+  "custom": {
+    "excludePatterns": [],
+    "envVars": ["TWILIO_AUTH_TOKEN", "TWILIO_ACCOUNT_SID"]
+  },
+  "endpoints": [
+    {
+      "path": "twilio-endpoint",
+      "method": "GET",
+      "type": "AWS",
+      "authorizationType": "none",
+      "apiKeyRequired": false,
+      "requestParameters": {},
+      "requestTemplates": {
+        "application/json": "{\"name\": \"$input.params('Body')\"}"
+      },
+      "responses": {
+        "400": {
+          "statusCode": "400"
+        },
+        "default": {
+          "statusCode": "200",
+          "responseParameters": {},
+          "responseModels": {"text/html": "Empty"},
+          "responseTemplates": {"text/html": "#set($inputRoot = $input.path('$'))$inputRoot"},
+          "text/html": ""
+        }
+      }
+    }
+  ],
+  "events": []
+}

@@ -1,0 +1,10 @@
+{
+  "name": "serverless-aws-demo",
+  "version": "0.0.1",
+  "profile": "serverless-v0.4.2",
+  "location": "https://github.com/shortjared/serverless-aws-demo",
+  "author": "Jared Short",
+  "description": "A Slick New Serverless Project",
+  "custom": {},
+  "plugins": []
+}
